@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 4</title>
+</head>
+
+<body>
+
+    <h1>Lista 4 - IF ELSE</h1>
+
+    <div>
+        <h3>Ex 1</h3>
+        Insira a sua idade: <input type="number" name="" id="Idade01">
+        <br>
+        <button onclick="festa()">ir a festa</button>
+        <br>
+        <p id="out_festa"></p>
+    </div>
+
+    <div>
+        <h3>Ex 2 </h3>
+        <br>
+        Quantas latas ele toma por dia : <input type="number" name="" id="ipt_latas">
+        <br>
+        <button onclick="latas()">Quantos refris?</button>
+        <br>
+        <p id="out_latas"></p>
+    </div>
+
+    <div>
+        <h3>Ex 3</h3>
+        <br>
+        Insira o valor da nota 1: <input type="number" name="" id="nota01">
+        <br>
+        Insira o valor da nota 2: <input type="number" name="" id="nota02">
+        <br>
+        Insira o valor da nota 3: <input type="number" name="" id="nota03">
+        <br>
+
+        <button onclick="forasDeSerie()">Analisar desempenho</button>
+        <br>
+        <p id="out_forasDeSerie"></p>
+    </div>
+
+    <div>
+        <h3>Ex 4</h3>
+        <br>
+        Insira o valor da pizza: <input type="number" name="" id="precoPizza">
+        <br>
+        Insira a quantidade de amigos reunidos: <input type="number" name="" id="qtdAmigos">
+        <br>
+        <button onclick="noitedapizza()">Rola Pizza?</button>
+        <br>
+        <p id="out_noitedapizza"></p>
+    </div>
+    
+    <div>
+        <h3>Ex 6</h3>
+        <br>
+        Insira a quantidade de KWH/mes: <input type="number" name="" id="KWHmes">
+        <br>
+        <button onclick="contaDeLuz()">calcular conta de luz</button>
+        <br>
+        <p id="out_contadeluz"></p>
+    </div>
+
+    <div>
+        <h3>Ex 7</h3>
+        <br>
+        Insira o valor da renda familiar: <input type="number" name="" id="rendaFamiliar">
+        <br>
+        Insira o valor da prestacao: <input type="number" name="" id="valorPerstacao">
+        <br>
+        <button onclick="prestacao()">verificar financiamento</button>
+        <br>
+        <p id="out_prestacao"></p>
+    </div>
+
+    <div>
+        <h3>Ex 8</h3>
+        <br>
+        Insira o saldo da conta: <input type="number" name="" id="saldoConta">
+        <br>
+        Insira o valor do debito: <input type="number" name="" id="valorDebito">
+        <br>
+        <button onclick="chequeEspecial()">Analisar conta</button>
+        <br>
+        <p id="out_chequeEspecial"></p>
+        <b><p id="out_chequeEspecialVermelho" style="color: red;"></p></b> 
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    function festa() {
+        let idade = Number(Idade01.value)
+
+        if (idade < 18) {
+            alert(`Pedir permissão pro responsável`)
+        }
+        else {
+            alert(`#partiuFesta`)
+        }
+
+    }
+
+    function latas() {
+        let latasAno = (Number(ipt_latas.value)  * 365)
+        out_latas.innerHTML = `Ele consome ${latasAno} latas por ano`
+        console.log(out_latas.innerHTML)
+        if (latasAno > 500) {
+            out_latas.innerHTML = out_latas.innerHTML + `<br> Cuidado com a diabetes `
+        }
+
+    }
+
+    function forasDeSerie(){
+        let media = (Number(nota01.value) + Number(nota02.value) + Number(nota03.value)) / 3
+        out_forasDeSerie.innerHTML = `Sua média foi de ${media.toFixed(2)} <br>`
+        if(media > 9.4){
+            out_forasDeSerie.innerHTML += `Parabéns, você é fora de série!`
+        }
+    }
+
+    function noitedapizza(){
+        let precopizzaporamigo = (Number(precoPizza.value) / Number(qtdAmigos.value)).toFixed(2)
+        out_noitedapizza.innerHTML = `Cada amigo vai pagar R$${precopizzaporamigo} pela pizza <br>`
+        console.log(precopizzaporamigo)
+        if(precopizzaporamigo > 20){
+            out_noitedapizza.innerHTML += `Deu ruim! Pizza muito cara!`
+        }
+
+    }
+
+    function contaDeLuz(){
+
+        let contaDeLuz = Number(KWHmes.value) * 0.85 /*R$*/
+
+        if(Number(KWHmes.value) < 100){
+            contaComDesconto = contaDeLuz - contaDeLuz * 0.1
+            console.log(contaComDesconto)
+            out_contadeluz.innerHTML = `A conta de luz fica: ${contaComDesconto.toFixed(2)}`
+        }
+        else{
+            out_contadeluz.innerHTML = `A conta de luz fica: ${contaDeLuz.toFixed(2)}`
+        }
+    }
+
+    function prestacao(){
+        let porcentagem =  (Number(valorPerstacao.value) * 100 / Number(rendaFamiliar.value)).toFixed(0)
+        out_prestacao.innerHTML = `A prestação corresponde a ${porcentagem}% da renda familiar <br>`
+        if(porcentagem > 30){
+            out_prestacao.innerHTML += `Será necessário complementar a renda familiar` 
+        }
+    }
+
+    function chequeEspecial(){
+        let resultado = Number(saldoConta.value) - Number(valorDebito.value)
+
+        if(resultado < 0 ){
+            out_chequeEspecialVermelho.innerHTML = `O saldo atual da conta corrente é ${resultado}`
+        }
+        else{
+            out_chequeEspecial.innerHTML = `O saldo atual da conta corrente é ${resultado}`
+        }
+
+    }
+
+
+</script>
