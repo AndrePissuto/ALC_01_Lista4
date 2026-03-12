@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista 4 - parte 2</title>
 </head>
 <body>
     <h1>Parte 2</h1>
@@ -53,12 +53,31 @@
     </div>
 
     <div>
+        <h3>Ex 8</h3>
+        Qual é a sua meta de economia: <input type="number" name="" id="ipt_meta_economia"><br>
+        Quanto você tem guardado: <input type="number" name="" id="ipt_guardado"><br>
+        quantos achocolatados: <input type="number" name="" id="ipt_achocolatado"><br>
+        <button onclick="economia()">Analisar economia</button>
+        <div id="out_economia"></div>
+    </div>
+
+    <div>
         <h3>Ex 9</h3>
         peso(Kg): <input type="number" name="" id="ipt_peso"><br>
         altura(m): <input type="number" name="" id="ipt_altura"><br>
         <button onclick="IMC()">Calcular IMC</button>
         <div id="out_IMC"></div>
     </div>
+        
+    <div>
+        <h3>Ex 10</h3>
+        qual era a velocidade do motorista (km/h): <input type="number" name="" id="ipt_velocidade"><br>
+        qual era o limite de velocidade da via: <input type="number" name="" id="ipt_limite_velocidade"><br>
+        <button onclick="velocidade()">Verificar</button>
+        <div id="out_velocidade"></div>
+    </div>
+
+
 
     <div>
         <h3>Ex 11</h3>
@@ -68,13 +87,26 @@
     </div>
 
     <div>
+        <h3>Ex 12</h3>
+        insira um numero maior que 0: <input type="number" name="" id="ipt_numero"><br>
+        <button onclick="divisaopor5()">multiplo que 5</button>
+        <div id="out_numero"></div>
+    </div>
+
+    <div>
         <h3>Ex 13</h3>
         pokemon: <input type="text" name="" id="ipt_pokemon"><br>
         <button onclick="pokemon()">escolher pokemon</button>
         <div id="out_pokemon"></div>
     </div>
 
-
+    <div>
+        <h3>Ex 14</h3>
+        <h2>Como esta se sentindo hoje?</h2><br>
+        <input type="text" name="" id="ipt_humor"><br>
+        <button onclick="humor()">Mostrar humor</button>
+        <div id="out_humor"></div>
+    </div>
 
 
 </body>
@@ -168,6 +200,19 @@
         }
     }
 
+    function economia(){
+        let metaEconomia = Number(ipt_meta_economia.value)
+        let quantoTemGuardado = Number(ipt_guardado.value)
+
+        if(quantoTemGuardado == metaEconomia){
+            out_economia.innerHTML =  "Parabéns, meta alcançada!"
+        }else if(quantoTemGuardado > metaEconomia){
+            out_economia.innerHTML =  `Parabéns, meta alcançada!<br>Meta ultrapassada em ${quantoTemGuardado - metaEconomia}`
+        }else{
+            out_economia.innerHTML =  `Força! Ainda em busca da meta! Falta ${metaEconomia - quantoTemGuardado}`
+        }
+    }
+
     function IMC(){
         let altura = Number(ipt_altura.value)
         let peso = Number(ipt_peso.value)
@@ -182,6 +227,19 @@
             out_IMC.innerHTML = "Acima do peso"
         }else{
             out_IMC.innerHTML = "Cuidado risco de obesidade"
+        }
+    }
+
+    function velocidade(){
+        let velocidade = Number(ipt_velocidade.value)
+        let limite = Number(ipt_limite.value)
+
+        if(velocidade <= limite){
+            out_velocidade.innerHTML = "Velocidade dentro do limite. Boa direção!"
+        }else if(velocidade <= limite * 1.2){
+            out_velocidade.innerHTML = "Atenção! Excedendo o limite permitido."
+        }else{
+            out_velocidade.innerHTML = "Multa grave! Velocidade muito acima do permitido."
         }
     }
 
@@ -209,6 +267,28 @@
 
     }
 
+    function divisaopor5(){
+        let numero = Number(ipt_numero.value)
+
+        if(numero <= 0){
+            alert("Insira um numero maior que 0")
+        }
+        else{
+            if(numero % 5 == 0){
+                out_numero.innerHTML = "Perfeito, esse número é múltiplo de cinco"
+            }else if(numero % 5 == 1){
+                out_numero.innerHTML = "Vich, sobrou um"
+            }else if(numero % 5 == 2){
+                out_numero.innerHTML = "Para esse o resto é dois"
+            }else if(numero % 5 == 3){
+                out_numero.innerHTML = "Com mais dois daria certo"
+            }else if(numero % 5 == 4){
+                out_numero.innerHTML = "Só faltou 1 para ser múltiplo de 5"
+            }
+        }
+        
+    }
+
     function pokemon(){ 
         let nomePokemon = ipt_pokemon.value
 
@@ -222,11 +302,21 @@
         }
     }
 
+    function humor(){
+        let humor = ipt_humor.value
 
-
-
-
-
-
+        if(humor == "feliz"){
+            out_humor.innerHTML = "😊"   
+        }else if(humor == "triste"){
+            out_humor.innerHTML = "😢"   
+        }else if (humor == "bravo"){
+            out_humor.innerHTML = "😡"   
+        }else if(humor == "surpreso"){
+            out_humor.innerHTML = "😲"   
+        }else if(humor == "cansado"){
+            out_humor.innerHTML = "😴"   
+        }
+    } 
+    
 
 </script>
