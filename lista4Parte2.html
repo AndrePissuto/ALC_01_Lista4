@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Parte 2</h1>
+
+    <div>
+        <h3>Ex 1</h3>
+        Insira a altura do aluno: <input type="number" name="" id="ipt_altura"><br>
+        <button onclick="altura()">Analisar estatura</button>
+        <div id="out_estatura"></div>
+    </div>
+
+    <div>
+        <h3>Ex 2</h3>
+        Insira a renda familiar: <input type="number" name="" id="ipt_renda_familiar"><br>
+        <button onclick="renda()">Analisar renda</button>
+        <div id="out_renda"></div>
+    </div>
+
+    <div>
+        <h3>Ex 3</h3>
+        Insira a temperatura: <input type="number" name="" id="ipt_temperatura"><br>
+        <button onclick="temperatura()">Analisar temperatura</button>
+        <div id="out_temperatura"></div>
+    </div>
+
+    <div>
+        <h3>Ex 4</h3>
+        Insira o peso da criança: <input type="number" name="" id="ipt_peso_crianca"></br>
+        <button onclick="pesoCrianca()">Analisar peso criança</button>
+        <div id="out_pesocrianca"></div>
+    </div>
+
+    <div>
+        <h3>Ex 5</h3>
+        Insira a nota do aluno: <input type="number" name="" id="ipt_nota_aluno"><br>
+        <button onclick="nota()">Classificar aluno</button>
+        <div id="out_nota_aluno"></div>
+    </div>
+
+    <div>
+        <h3>Ex 7</h3>
+        quantos paes: <input type="number" name="" id="ipt_paes_franceses"><br>
+        quantas bolachas: <input type="number" name="" id="ipt_bolacha"><br>
+        quantos achocolatados: <input type="number" name="" id="ipt_achocolatado"><br>
+        <button onclick="calorias()">Verificar calorias</button>
+        <div id="out_calorias"></div>
+    </div>
+
+    <div>
+        <h3>Ex 9</h3>
+        peso(Kg): <input type="number" name="" id="ipt_peso"><br>
+        altura(m): <input type="number" name="" id="ipt_altura"><br>
+        <button onclick="IMC()">Calcular IMC</button>
+        <div id="out_IMC"></div>
+    </div>
+
+    <div>
+        <h3>Ex 11</h3>
+        umidade atual ambiente: <input type="number" name="" id="ipt_umidade"><br>
+        <button onclick="umidade()">Verificar umidade</button>
+        <div id="out_umidade"></div>
+    </div>
+
+    <div>
+        <h3>Ex 13</h3>
+        pokemon: <input type="text" name="" id="ipt_pokemon"><br>
+        <button onclick="pokemon()">escolher pokemon</button>
+        <div id="out_pokemon"></div>
+    </div>
+
+
+
+
+</body>
+</html>
+
+<script>
+    function altura(){
+        let altura = Number(ipt_altura.value)
+
+        if(altura <= 1.65){
+            out_estatura.innerHTML = "Você pode ser piloto de corrida"
+        } else if(altura <= 1.80){
+            out_estatura.innerHTML = "Você pode ser jogador de futebol"
+        }else{
+            out_estatura.innerHTML = "Você pode ser jogador de vôlei ou basquete"
+        }
+    }
+
+    function renda(){
+        let rendafamiliar = Number(ipt_renda_familiar.value)
+
+        if(rendafamiliar <= 250){
+            out_renda.innerHTML = "Classe E"
+        } else if(rendafamiliar <= 900){
+            out_renda.innerHTML = "Classe D"
+        }else if(rendafamiliar <= 2500){
+            out_renda.innerHTML = "Classe C"
+        }else if(rendafamiliar <= 9500){
+            out_renda.innerHTML = "Classe B"
+        }else{
+            out_renda.innerHTML = "Classe A"
+        }
+    }
+
+    function temperatura(){
+        let temperatura = Number(ipt_temperatura.value)
+        if(temperatura <= 14){
+            out_temperatura.innerHTML = "Congelante"
+        }else if(temperatura <= 21){
+            out_temperatura.innerHTML = "Com frio"
+        }else if(temperatura <= 24){
+            out_temperatura.innerHTML = "Confortavel"
+        }else if(temperatura <= 31 ){
+            out_temperatura.innerHTML = "com calor"
+        }else{
+            out_temperatura.innerHTML = "Calor escaldante"
+        }
+
+    }
+
+    function pesoCrianca(){
+        let pesoCrianca = Number(ipt_peso_crianca.value)
+        
+        if(pesoCrianca <= 13.5){
+            out_pesocrianca.innerHTML = "Abaixo do peso"
+        }else if(pesoCrianca <= 21.2){
+            out_pesocrianca.innerHTML = "peso na media"
+        }else if(pesoCrianca == 18.3){
+            out_pesocrianca.innerHTML = "peso perfeito"
+        }else{
+            out_pesocrianca.innerHTML = "acima do peso"
+        }
+    }
+
+    function nota(){
+        let notaAluno = Number(ipt_nota_aluno.value)
+
+        if(notaAluno < 5 ){
+            out_nota_aluno.innerHTML = "Aluno precisa de muita ajuda"
+        }else if(notaAluno <= 7){
+            out_nota_aluno.innerHTML = "Aluno na média"
+        }else if(notaAluno <= 9.5){
+            out_nota_aluno.innerHTML = "aluno acima da média"
+        }else{
+            out_nota_aluno.innerHTML = "Aluno fora da curva"
+        }
+    }
+
+    function calorias(){
+        let caloriasPaes = Number(ipt_paes_franceses.value) * 50
+        let caloriasbolacha = Number(ipt_bolacha.value) * 80
+        let caloriasAchocolatado = Number(ipt_achocolatadp.value) * 70
+        let caloriasTotais = caloriasAchocolatado + caloriasbolacha + caloriasPaes
+
+        if(caloriasTotais < 200){
+            out_calorias.innerHTML = "Parabens! vai ficar em forma"
+        }else if(caloriasTotais <= 400){
+            out_calorias.innerHTML = "Cudado, vai ficar menos saudavel"
+        }else{
+            out_calorias.innerHTML = "Alerta critico de saude!!!"
+        }
+    }
+
+    function IMC(){
+        let altura = Number(ipt_altura.value)
+        let peso = Number(ipt_peso.value)
+
+        let imc = peso / altura ** 2
+
+        if(imc < 18.5){
+            out_IMC.innerHTML = "Abaixo do peso"
+        }else if(imc <= 24.9){
+            out_IMC.innerHTML = "Peso normal"
+        }else if(imc <= 29.9){
+            out_IMC.innerHTML = "Acima do peso"
+        }else{
+            out_IMC.innerHTML = "Cuidado risco de obesidade"
+        }
+    }
+
+    function umidade(){
+        let umidade = Number(ipt_umidade.value)
+
+        if(umidade <= 100){
+           if(umidade >= 0){
+            if(umidade < 12){
+                out_umidade.innerHTML = "estado de emergencia"
+            }else if(umidade <= 20){
+                out_umidade.innerHTML = "estado de alerta"
+            }else if(umidade <= 30){
+                out_umidade.innerHTML = "estado de atencao"
+            }else{
+                out_umidade.innerHTML = "nenhum risco"
+            }
+           }else{
+            out_umidade.innerHTML = "poe um numero de 0 a 100"
+           } 
+        }else{
+            out_umidade.innerHTML = "poe um numero de 0 a 100"
+        }
+
+
+    }
+
+    function pokemon(){ 
+        let nomePokemon = ipt_pokemon.value
+
+        
+        if(nomePokemon == "bulbasaur"){
+            out_pokemon.innerHTML = `<img src="${nomePokemon}.jpg"></img>`   
+        }else if(nomePokemon == "squirtle"){
+            out_pokemon.innerHTML = `<img src="${nomePokemon}.jpg"></img>`   
+        }else if(nomePokemon == "charmander"){
+            out_pokemon.innerHTML = `<img src="${nomePokemon}.jpg"></img>`
+        }
+    }
+
+
+
+
+
+
+
+
+</script>
